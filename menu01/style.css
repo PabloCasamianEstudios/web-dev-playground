@@ -1,0 +1,84 @@
+:root{
+    --bg-color: #b6b6b6;
+    --text-color: #1f1e1e;
+    --main-color: red; 
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+ul {
+    position: relative;
+}
+
+ul li {
+    list-style: none;
+    text-align: center;
+}
+
+ul li a {
+    text-decoration: none;
+    font-size: 60px;
+    transition: all 0.5s ease-in-out;
+    font-weight: 700;
+    color: var(--text-color);
+    display: inline-block;
+}
+
+ul:hover li a{
+    color: var(--bg-color);
+}
+
+ul li a:hover {
+    color: var(--main-color);
+}
+
+ul li a:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 5em;
+    color: rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 500px;
+    transition: letter-spacing 0.5s, left 0.5s;
+  }
+  ul li a:hover:before {
+    content: attr(data-text);
+    opacity: 1;
+    left: 50%;
+    letter-spacing: 10px;
+    /* Altura y Anchura para que ocupe toda la screen (con font size no ocurre)*/
+    width: 1800px;
+    height: 1800px;
+  }
+
+  /*
+
+  Para que cambie el color del fondo
+
+  ul li a:before {
+    background-color:  rgb(255, 0, 0);
+  }
+    */
